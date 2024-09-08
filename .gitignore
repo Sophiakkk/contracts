@@ -134,3 +134,5 @@ wandb/
 plots/ 
 gifs/
 results/
+
+.vscode/

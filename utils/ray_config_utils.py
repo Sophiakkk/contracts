@@ -35,7 +35,7 @@ def parse_arguments_dict(experiment_name, arg_dict):
     exp_name = experiment_name
 
     results_dir = arg_dict.get('results_dir','ray_results/')  
-    wandb = arg_dict.get('wandb',False)
+    wandb = arg_dict.get('wandb',True)
  
     model = {"fcnet_hiddens": [64, 64]}
     model_p =  arg_dict.get('model_params',{}) 
