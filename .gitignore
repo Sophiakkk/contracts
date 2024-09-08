@@ -133,6 +133,5 @@ fishing_domain/
 wandb/ 
 plots/ 
 gifs/
-# results/
 
 .vscode/
