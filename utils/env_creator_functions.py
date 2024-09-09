@@ -8,6 +8,7 @@ from environments.harvest_features import HarvestFeatures
 from environments.harvest_new import HarvestEnv
 from environments.self_driving_car_accelerate import SelfAcceleratingCarEnv
 from environments.two_stage_train import SeparateContractNegotiateStage,SeparateContractSubgameStage, SeparateContractCombinedStage, JointEnv, NegotiationSolver
+from environments.pd import PD
 
 def env_creator(name,config):
     if name == 'SelfDrive':
@@ -30,6 +31,8 @@ def env_creator(name,config):
         return NegotiationSolver(**config)
     elif name =='JointEnv':
         return JointEnv(**config)
+    elif name == 'PD':
+        return PD(**config)
     else :
         raise ValueError('Environment not found')
 
@@ -43,6 +46,7 @@ register_env('ContractWrapperSubgame', lambda config: env_creator('ContractWrapp
 register_env('ContractWrapperCombined', lambda config: env_creator('ContractWrapperCombined',config))
 register_env('NegotiationSolver', lambda config: env_creator('NegotiationSolver',config))
 register_env('JointEnv', lambda config: env_creator('JointEnv',config))
+register_env('PD', lambda config: env_creator('PD',config))
 
 def get_base_env_tag(arg_dict) : 
     if arg_dict.get("environment") == 'selfdrive':
@@ -55,6 +59,8 @@ def get_base_env_tag(arg_dict) :
         base_env_tag = 'Cleanup'
     elif arg_dict.get("environment") == 'cleanup_new':
         base_env_tag = 'CleanupNew'
+    elif arg_dict.get("environment") == 'pd':
+        base_env_tag = 'PD'
     else:
         assert False
     return base_env_tag
