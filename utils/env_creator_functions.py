@@ -32,7 +32,7 @@ def env_creator(name,config):
     elif name =='JointEnv':
         return JointEnv(**config)
     elif name == 'PD':
-        return PD(**config)
+        return PD(max_steps=1,**config)
     else :
         raise ValueError('Environment not found')
 

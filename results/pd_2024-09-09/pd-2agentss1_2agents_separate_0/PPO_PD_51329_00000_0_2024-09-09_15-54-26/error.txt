@@ -1,0 +1,37 @@
+Failure # 1 (occurred at 2024-09-09_15-54-41)
+Traceback (most recent call last):
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/tune/execution/ray_trial_executor.py", line 1070, in get_next_executor_event
+    future_result = ray.get(ready_future)
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/_private/client_mode_hook.py", line 105, in wrapper
+    return func(*args, **kwargs)
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/_private/worker.py", line 2311, in get
+    raise value
+ray.exceptions.RayActorError: The actor died because of an error raised in its creation task, [36mray::PPO.__init__()[39m (pid=324862, ip=10.36.213.138, repr=PPO)
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/evaluation/worker_set.py", line 239, in _setup
+    self.add_workers(
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/evaluation/worker_set.py", line 612, in add_workers
+    raise result.get()
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/utils/actor_manager.py", line 473, in __fetch_result
+    result = ray.get(r)
+ray.exceptions.RayActorError: The actor died because of an error raised in its creation task, [36mray::RolloutWorker.__init__()[39m (pid=325078, ip=10.36.213.138, repr=<ray.rllib.evaluation.rollout_worker.RolloutWorker object at 0x7cc8e6c3fbb0>)
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/evaluation/rollout_worker.py", line 712, in __init__
+    self._build_policy_map(
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/evaluation/rollout_worker.py", line 1953, in _build_policy_map
+    preprocessor = ModelCatalog.get_preprocessor_for_space(
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/models/catalog.py", line 789, in get_preprocessor_for_space
+    raise Exception(
+Exception: Unknown config key `lr`, all keys: ['_use_default_native_models', '_disable_preprocessor_api', '_disable_action_flattening', 'fcnet_hiddens', 'fcnet_activation', 'conv_filters', 'conv_activation', 'post_fcnet_hiddens', 'post_fcnet_activation', 'free_log_std', 'no_final_linear', 'vf_share_layers', 'use_lstm', 'max_seq_len', 'lstm_cell_size', 'lstm_use_prev_action', 'lstm_use_prev_reward', '_time_major', 'use_attention', 'attention_num_transformer_units', 'attention_dim', 'attention_num_heads', 'attention_head_dim', 'attention_memory_inference', 'attention_memory_training', 'attention_position_wise_mlp_dim', 'attention_init_gru_gate_bias', 'attention_use_n_prev_actions', 'attention_use_n_prev_rewards', 'framestack', 'dim', 'grayscale', 'zero_mean', 'custom_model', 'custom_model_config', 'custom_action_dist', 'custom_preprocessor', 'lstm_use_prev_action_reward']
+
+During handling of the above exception, another exception occurred:
+
+[36mray::PPO.__init__()[39m (pid=324862, ip=10.36.213.138, repr=PPO)
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/algorithms/algorithm.py", line 441, in __init__
+    super().__init__(
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/tune/trainable/trainable.py", line 169, in __init__
+    self.setup(copy.deepcopy(self.config))
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/algorithms/algorithm.py", line 566, in setup
+    self.workers = WorkerSet(
+  File "/home/zsh/anaconda3/envs/contracting/lib/python3.9/site-packages/ray/rllib/evaluation/worker_set.py", line 191, in __init__
+    raise e.args[0].args[2]
+Exception: Unknown config key `lr`, all keys: ['_use_default_native_models', '_disable_preprocessor_api', '_disable_action_flattening', 'fcnet_hiddens', 'fcnet_activation', 'conv_filters', 'conv_activation', 'post_fcnet_hiddens', 'post_fcnet_activation', 'free_log_std', 'no_final_linear', 'vf_share_layers', 'use_lstm', 'max_seq_len', 'lstm_cell_size', 'lstm_use_prev_action', 'lstm_use_prev_reward', '_time_major', 'use_attention', 'attention_num_transformer_units', 'attention_dim', 'attention_num_heads', 'attention_head_dim', 'attention_memory_inference', 'attention_memory_training', 'attention_position_wise_mlp_dim', 'attention_init_gru_gate_bias', 'attention_use_n_prev_actions', 'attention_use_n_prev_rewards', 'framestack', 'dim', 'grayscale', 'zero_mean', 'custom_model', 'custom_model_config', 'custom_action_dist', 'custom_preprocessor', 'lstm_use_prev_action_reward']
+

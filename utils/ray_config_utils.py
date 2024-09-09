@@ -113,7 +113,7 @@ def parse_arguments_dict(experiment_name, arg_dict):
         'model_params':model,                                   # Model parameters (should be a dictionary, mainly for custom models)
         'env_args':env_args,                                    # Any custom env params 
         'solver':arg_dict.get("solver",False),                  # Whether to use a solver for second stage of contracting
-        'minibatch_size':arg_dict.get("minibatch_size",4096),   # Minibatch size for the contract negotiation stage
+        'minibatch_size':arg_dict.get("minibatch_size",128),   # Minibatch size for the contract negotiation stage
         'solver_samples': arg_dict.get('solver_samples',10)     # Number of contracts sampled by solver per episode                                                                                                                             # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
     }
 
@@ -139,6 +139,8 @@ def get_config_and_env(params_dict):
             "model":params_dict['model_params'],
             "num_workers": params_dict['num_workers'],
             'sgd_minibatch_size': params_dict['minibatch_size'],
+            "lr": params_dict.get("lr",4e-4),
+            "vf_loss_coeff": params_dict.get("vf_loss_coeff",2.0),
             "horizon": params_dict['horizon'],
             "gamma": 0.99,
             "multiagent": {

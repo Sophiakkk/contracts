@@ -2,13 +2,14 @@
   "num_workers": 8,
   "num_timesteps": 1280000, 
   "batch_size": 128,
+  "minibatch_size": 128,
   "max_steps": 1,
   "horizon": 1,
+  "lr": 4e-4,
+  "vf_loss_coeff": 2.0,
   "model_params":{
     "fcnet_hiddens": [8, 8],
-    "fcnet_activation": "relu",
-    "lr": 4e-4,
-    "vf_loss_coeff": 2.0
+    "fcnet_activation": "relu"
   },
   "wandb":true,
   "separate":true,
