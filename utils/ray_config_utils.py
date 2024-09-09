@@ -144,8 +144,7 @@ def get_config_and_env(params_dict):
             "gamma": 0.99,
             "multiagent": {
                 "policies_to_train": ['policy'] if params_dict['shared_policy'] else ['a' + str(i) for i in range(params_dict['num_agents'])],
-                # "policies": {'policy': PolicySpec()} if params_dict['shared_policy'] else {'a'+str(i): PolicySpec() for i in range(params_dict['num_agents'])},
-                "policies": {'policy': PolicySpec(config={"custom_optimizer": custom_optimizer,}) } if params_dict['shared_policy'] else {'a'+str(i): PolicySpec() for i in range(params_dict['num_agents'])},
+                "policies": {'policy': PolicySpec()} if params_dict['shared_policy'] else {'a'+str(i): PolicySpec() for i in range(params_dict['num_agents'])},
                 "policy_mapping_fn": (lambda agent_id, episode, worker, **kwargs: 'policy')
                     if params_dict['shared_policy'] else (lambda agent_id, episode, worker, **kwargs: agent_id)
             },
