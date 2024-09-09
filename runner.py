@@ -157,7 +157,7 @@ if __name__ =='__main__' :
     if args.name is not None : 
         args.name +=  time.strftime("_%Y-%m-%d")  
         args.results_dir += args.name
-        os.makedirs(args.results_dir) 
+        os.makedirs(args.results_dir, exist_ok=True)
 
     for i,c in enumerate(config_dict_list):
         c['experiment_name'] += 's{}'.format(int(c['seed']/sm))
@@ -165,9 +165,9 @@ if __name__ =='__main__' :
         # for all experiments are automatically stored
         c['store_path'] =  'experiment_paths/' + args.name+ '/' + copy.deepcopy(c['experiment_name']) + '_' +str(i)+ '.json'
 
-    os.makedirs('experiment_paths/{}'.format(args.name))
+    os.makedirs('experiment_paths/{}'.format(args.name),exist_ok=True)
     if config_dict_list[0].get('num_renders'):
-        os.makedirs('gifs/{}'.format(args.name))
+        os.makedirs('gifs/{}'.format(args.name), exist_ok=True)
     
     for c in config_dict_list:
         c['results_dir'] = args.results_dir 
