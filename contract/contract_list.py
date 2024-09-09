@@ -3,6 +3,34 @@ from contract.contract import Contract
 import gym
 import copy 
 
+class PDContract(Contract):
+    """
+    A contract space for a multi-agent prisoner dilemma environment.
+
+    Contracts are parameterized by theta in [0, n], where n is number of agents. Default n is 2.
+
+    Parameters:
+        num_agents (int): The number of agents in the environment.
+        low_val (float, optional): The lower bound for the transfer values. Default is 0.
+        high_val (float, optional): The upper bound for the transfer values. Default is 2.
+
+    """ 
+    def __init__(self, num_agents,low_val=0,high_val=2):
+        super().__init__(gym.spaces.Box(shape=(1,), low=low_val, high=high_val), np.array([0.0]), num_agents)
+
+    def compute_transfer(self, obs, acts, rews, params, infos=None):
+        """
+        obs: dict of observations
+        acts: dict of actions
+        rews: dict of rewards
+        params: dict of contract parameters
+        """
+        keys = list(acts.keys())
+        transfers = {}
+        for i in range(len(keys)):
+            transfers[keys[i]] = params[keys[i]][0] # transfer the contract value
+        return transfers
+    
 # charge for so many cleaned squares
 class CleanupContract(Contract):
     """
