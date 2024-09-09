@@ -24,7 +24,6 @@ from utils.logger_utils import MetricsCallback
 from ray.rllib.algorithms.callbacks import MultiCallbacks
 from ray.rllib.models import ModelCatalog 
 from environments.Networks.vision_net import VisionNetwork
-from utils.customized_optimizer import custom_optimizer
 
 def parse_arguments_dict(experiment_name, arg_dict):
     # construct the input tuple to run_experiment
