@@ -136,4 +136,6 @@ gifs/
 
 .vscode/
 
-.results/
+results/
+
+experiment_paths/
