@@ -3,8 +3,7 @@
 #SBATCH --qos=deadline
 
 #SBATCH --job-name="pdcontract"
-#SBATCH --gres=gpu:1
-#SBATCH --partition=rtx6000
+#SBATCH --partition=cpu
 #SBATCH --time=5:00:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=8G

@@ -90,7 +90,7 @@ if __name__ =='__main__' :
     # Load the config dict list 
     with open(args.config_path, 'r') as f:
             config_dict_list = json.load(f)
-
+    config_dict_list['task_id'] = args.task_id
 
     # The first element of the list is the global parameters which all configs will have (this will not overwrite any parameters in the individual configs)
     # The second element of the list is the parameters which will be iterated over (for example hyperparameter tuning) 
