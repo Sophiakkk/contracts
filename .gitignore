@@ -130,12 +130,9 @@ dmypy.json
 .pyre/
 
 fishing_domain/
-wandb/ 
 plots/ 
 gifs/
 
 .vscode/
 
 results/
-
-experiment_paths/
