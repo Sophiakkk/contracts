@@ -1,6 +1,6 @@
 [{
-  "num_workers": 1,
-  "num_timesteps": 256, 
+  "num_workers": 8,
+  "num_timesteps": 1280000, 
   "batch_size": 128,
   "minibatch_size": 128,
   "max_steps": 1,
