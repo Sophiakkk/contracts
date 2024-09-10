@@ -32,6 +32,7 @@ def get_args() :
     parser.add_argument('--results_dir',type =str, default = 'results/') 
     parser.add_argument('--load_second_stage',type=str,default=None)
     parser.add_argument('--seeds',type=int,default=1)
+    parser.add_argument('--task_id',type=int,default=0)
     
     args = parser.parse_args() 
     return args
@@ -163,7 +164,7 @@ if __name__ =='__main__' :
         c['experiment_name'] += 's{}'.format(int(c['seed']/sm))
         # The store path is the full file path for the first stage checkpoints to be stored. First stage checkpoints 
         # for all experiments are automatically stored
-        c['store_path'] =  'experiment_paths/' + args.name+ '/' + copy.deepcopy(c['experiment_name']) + '_' +str(i)+ '.json'
+        c['store_path'] =  'runid_'+ str(args.task_id) + 'experiment_paths/' + args.name+ '/' + copy.deepcopy(c['experiment_name']) + '_' +str(i)+ '.json'
 
     os.makedirs('experiment_paths/{}'.format(args.name),exist_ok=True)
     if config_dict_list[0].get('num_renders'):
