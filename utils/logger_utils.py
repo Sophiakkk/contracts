@@ -32,7 +32,7 @@ class CustomLoggerCallback(LoggerCallback):
         global run_wandb
         run_wandb = None 
         name = self.config['parent_tag'] + self.config['exp_name'] +  time.strftime("_%Y-%m-%d")
-        group = self.config['parent_tag']+"_separate_"+self.config['separate']
+        group = self.config['parent_tag']+"_separate_"+str(self.config['separate'])
         run_wandb = wandb.init(project='Contracting',group=group,config=self.config,tags=[self.config['base_env_tag']],name=name,settings=wandb.Settings(start_method="fork",_disable_stats=True),mode='online')  
         return run_wandb 
 
