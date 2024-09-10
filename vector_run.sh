@@ -3,7 +3,6 @@
 #SBATCH --mem=4G
 #SBATCH --time=0-5:00:00
 #SBATCH --partition=cpu
-#SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=6
 #SBATCH --array=1-20
 #SBTACH --output=logs/%x-%A-%a.out
