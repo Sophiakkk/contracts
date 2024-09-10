@@ -31,9 +31,9 @@ class CustomLoggerCallback(LoggerCallback):
     def setup_wandb(self) : 
         global run_wandb
         run_wandb = None 
-        name = self.config['parent_tag'] + self.config['exp_name'] +  time.strftime("_%Y-%m-%d") 
-        run_wandb = wandb.init(project='Contracting',group=self.config['exp_name'],
-                               config=self.config,tags=[self.config['base_env_tag']],name=name,settings=wandb.Settings(start_method="fork",_disable_stats=True))  
+        name = self.config['parent_tag'] + self.config['exp_name'] +  time.strftime("_%Y-%m-%d")
+        group = self.config['exp_name']
+        run_wandb = wandb.init(project='Contracting',group=group,config=self.config,tags=[self.config['base_env_tag']],name=name,settings=wandb.Settings(start_method="fork",_disable_stats=True),mode='online')  
         return run_wandb 
 
     def set_stage(self,stage) : 
