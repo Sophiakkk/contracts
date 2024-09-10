@@ -93,7 +93,7 @@ if __name__ =='__main__' :
     task_config = {
         "task_id": args.task_id,
     }
-    config_dict_list.update(task_config)
+    config_dict_list.append(task_config)
 
     # The first element of the list is the global parameters which all configs will have (this will not overwrite any parameters in the individual configs)
     # The second element of the list is the parameters which will be iterated over (for example hyperparameter tuning) 
