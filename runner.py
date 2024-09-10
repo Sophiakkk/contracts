@@ -90,10 +90,6 @@ if __name__ =='__main__' :
     # Load the config dict list 
     with open(args.config_path, 'r') as f:
             config_dict_list = json.load(f)
-    task_config = {
-        "task_id": args.task_id,
-    }
-    config_dict_list.append(task_config)
 
     # The first element of the list is the global parameters which all configs will have (this will not overwrite any parameters in the individual configs)
     # The second element of the list is the parameters which will be iterated over (for example hyperparameter tuning) 
@@ -175,6 +171,7 @@ if __name__ =='__main__' :
     for c in config_dict_list:
         c['results_dir'] = args.results_dir 
         c['parent_name'] = args.name 
+        c['task_id'] = args.task_id
         
     # Total number of jobs
     total_jobs = len(config_dict_list) 
