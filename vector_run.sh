@@ -14,4 +14,4 @@ name=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $2}' $con
 
 config_path=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $3}' $config)
 
-python runner.py --config_path $config_path --name $name
+python runner.py --config_path $config_path --name $name  --seeds $SLURM_ARRAY_TASK_ID
