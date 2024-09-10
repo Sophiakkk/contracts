@@ -5,8 +5,8 @@
 #SBATCH --partition=cpu
 #SBATCH --cpus-per-task=6
 #SBATCH --array=1-20
-#SBTACH --output=logs/%x-%A-%a.out
-#SBTACH --error=logs/%x-%A-%a.err
+#SBATCH --output=logs/%x-%A-%a.out
+#SBATCH --error=logs/%x-%A-%a.err
 
 config=config_combo.txt
 
