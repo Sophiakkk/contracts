@@ -8,6 +8,11 @@
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
+# Introduce a delay based on the task ID
+sleep_time=$((SLURM_ARRAY_TASK_ID * 10))  # 10 seconds delay for each task
+echo "Sleeping for ${sleep_time} seconds before starting job ${SLURM_ARRAY_TASK_ID}"
+sleep ${sleep_time}
+
 config=config_combo.txt
 
 name=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $2}' $config)
