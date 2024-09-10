@@ -2,11 +2,11 @@
 #SBATCH --qos=deadline
 #SBATCH --mem=4G
 #SBATCH --time=0-5:00:00
-#SBATCH --ntasks=4
 #SBATCH --partition=cpu
-#SBATCH --cpus-per-task=1
+#SBATCH --cpus-per-task=8
 #SBATCH --array=1-20
-#SBTACH --output=logs/array_%A_%a.out
+#SBTACH --output=logs/%x-%A-%a.out
+#SBTACH --error=logs/%x-%A-%a.err
 
 config=config_combo.txt
 
