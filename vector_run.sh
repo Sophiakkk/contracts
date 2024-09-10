@@ -3,7 +3,8 @@
 #SBATCH --mem=4G
 #SBATCH --time=0-5:00:00
 #SBATCH --partition=cpu
-#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=6
 #SBATCH --array=1-20
 #SBTACH --output=logs/%x-%A-%a.out
 #SBTACH --error=logs/%x-%A-%a.err
@@ -14,4 +15,6 @@ name=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $2}' $con
 
 config_path=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $3}' $config)
 
-python runner.py --config_path $config_path --name $name  --seeds $SLURM_ARRAY_TASK_ID
+echo "Running $name with config $config_path"
+
+python runner.py --config_path $config_path --name $name
