@@ -4,7 +4,7 @@
 #SBATCH --job-name="pdcontract"
 #SBATCH --partition=cpu
 #SBATCH --time=5:00:00
-#SBATCH --cpus-per-task=8
+#SBATCH --cpus-per-task=1
 #SBATCH --mem=4G
 
 #SBATCH --array=1-20
