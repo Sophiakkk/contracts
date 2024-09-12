@@ -155,8 +155,9 @@ if __name__ =='__main__' :
     config_dict_list = copy.deepcopy(new_config_list ) 
 
     if args.name is not None : 
-        args.name +=  time.strftime("_%Y-%m-%d")  
-        args.results_dir += args.name
+        # args.name +=  time.strftime("_%Y-%m-%d")  
+        args.results_dir += args.name + '/'
+        args.results_dir += 'job_'+str(args.task_id) + '/'
         os.makedirs(args.results_dir, exist_ok=True)
 
     for i,c in enumerate(config_dict_list):
