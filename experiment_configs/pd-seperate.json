@@ -1,5 +1,5 @@
 [{
-  "num_workers": 1,
+  "num_workers": 6,
   "num_timesteps": 100, 
   "batch_size": 10,
   "minibatch_size": 10,

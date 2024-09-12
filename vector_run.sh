@@ -4,10 +4,10 @@
 #SBATCH --job-name="pdcontract"
 #SBATCH --partition=cpu
 #SBATCH --time=5:00:00
-#SBATCH --cpus-per-task=4
-#SBATCH --mem=8G
+#SBATCH --cpus-per-task=8
+#SBATCH --mem=4G
 
-#SBATCH --array=1-20%5
+#SBATCH --array=1-20
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
