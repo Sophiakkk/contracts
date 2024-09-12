@@ -164,8 +164,8 @@ if __name__ =='__main__' :
         c['experiment_name'] += 's{}'.format(int(c['seed']/sm))
         # The store path is the full file path for the first stage checkpoints to be stored. First stage checkpoints 
         # for all experiments are automatically stored
-        c['store_path'] =  'experiment_paths/' + args.name+ '/id{}/'.format(str(args.task_id)) + copy.deepcopy(c['experiment_name']) + '_' +str(i)+ '.json'
-    os.makedirs('experiment_paths/{}/id{}'.format(args.name,str(args.task_id)),exist_ok=True)
+        c['store_path'] =  'experiment_paths/' + args.name+ '/job_{}/'.format(str(args.task_id)) + copy.deepcopy(c['experiment_name']) + '_' +str(i)+ '.json'
+    os.makedirs('experiment_paths/{}/job_{}/'.format(args.name,str(args.task_id)),exist_ok=True)
     if config_dict_list[0].get('num_renders'):
         os.makedirs('gifs/{}'.format(args.name), exist_ok=True)
     
