@@ -36,9 +36,11 @@ def parse_arguments_dict(experiment_name, arg_dict):
     results_dir = arg_dict.get('results_dir','ray_results/')  
     wandb = arg_dict.get('wandb',True)
  
-    model = {"fcnet_hiddens": [64, 64]}
-    model_p =  arg_dict.get('model_params',{}) 
-    model.update(model_p)
+    # model = {"fcnet_hiddens": [64, 64]}
+    # model_p =  arg_dict.get('model_params',{}) 
+    # model.update(model_p)
+    model= arg_dict.get('model_params',{})
+    task_id = arg_dict.get('task_id', None)
     
     base_env_tag = get_base_env_tag(arg_dict) 
     if model.get('custom_model') :
@@ -114,7 +116,8 @@ def parse_arguments_dict(experiment_name, arg_dict):
         'env_args':env_args,                                    # Any custom env params 
         'solver':arg_dict.get("solver",False),                  # Whether to use a solver for second stage of contracting
         'minibatch_size':arg_dict.get("minibatch_size",128),   # Minibatch size for the contract negotiation stage
-        'solver_samples': arg_dict.get('solver_samples',10)     # Number of contracts sampled by solver per episode                                                                                                                             # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
+        'solver_samples': arg_dict.get('solver_samples',10),     # Number of contracts sampled by solver per episode
+        'task_id':task_id                                      # Task ID for wandb                                                                                                                                                                                                                                                  # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
     }
 
     if params_dict['joint'] or params_dict['separate']  or params_dict['combined'] or params_dict['solver']:
