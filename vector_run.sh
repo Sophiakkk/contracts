@@ -1,5 +1,4 @@
 #!/bin/bash
-#SBATCH --account=deadline
 #SBATCH --qos=deadline
 
 #SBATCH --job-name="pdcontract"
