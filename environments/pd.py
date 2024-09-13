@@ -48,11 +48,27 @@ class PD(MultiAgentEnv):
             "a1": self.payout_mat[ac0][ac1]
         }
 
+        social_welfare = rewards["a0"] + rewards["a1"]
+
         # Determine if the episode is done
         done = self.step_count == self.max_steps
         dones = {"__all__": done}
 
-        infos = {"a0": {}, "a1": {}}
+        # infos = {"a0": {}, "a1": {}}
+
+        # Log actions, rewards, and social welfare in the infos dictionary
+        infos = {
+            "a0": {
+                "action of a0": ac0,
+                "reward of a0": rewards["a0"],
+                "social_welfare": social_welfare
+            },
+            "a1": {
+                "action of a1": ac1,
+                "reward of a1": rewards["a1"],
+            }
+        }
+
 
         # Return the next observations, rewards, done flags, and infos
         return {
