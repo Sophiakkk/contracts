@@ -5,7 +5,7 @@
 #SBATCH --job-name="pdcontract"
 #SBATCH --gres=gpu:1
 #SBATCH --partition=rtx6000
-#SBATCH --time=5:00:00
+#SBATCH --time=100:00:00
 #SBATCH -c 6
 #SBATCH --mem=4G
 
