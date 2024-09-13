@@ -6,7 +6,7 @@
 #SBATCH --gres=gpu:1
 #SBATCH --partition=rtx6000
 #SBATCH --time=100:00:00
-#SBATCH -c 6
+#SBATCH -c 2
 #SBATCH --mem=4G
 
 #SBATCH --array=1-10
