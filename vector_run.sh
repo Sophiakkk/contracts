@@ -9,7 +9,7 @@
 #SBATCH -c 6
 #SBATCH --mem=4G
 
-#SBATCH --array=1-20%5
+#SBATCH --array=1-20%1
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
