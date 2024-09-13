@@ -18,7 +18,7 @@ class PD(MultiAgentEnv):
         self.max_steps = max_steps
         self.payout_mat = np.array([[-1., 0.], [-3., -2.]])
         self.dummy_state = np.array([1., 0.]) # alternative dummy observation [1, 0]
-        self.step_count = None
+        self.step_count = 0
 
         self.num_outputs = 2
         self.action_space = gym.spaces.Discrete(2)
