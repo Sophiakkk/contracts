@@ -2,14 +2,13 @@
 #SBATCH --account=deadline
 #SBATCH --qos=deadline
 
-#SBATCH --job-name="pdcontract"
-#SBATCH --gres=gpu:1
-#SBATCH --partition=rtx6000
+#SBATCH --job-name="pd-all"
+#SBATCH --partition=cpu
 #SBATCH --time=100:00:00
 #SBATCH -c 4
 #SBATCH --mem=4G
 
-#SBATCH --array=1-10
+#SBATCH --array=1-20
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
