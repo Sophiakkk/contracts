@@ -3,7 +3,7 @@
 #SBATCH --qos=deadline
 
 #SBATCH --job-name="pd-all"
-#SBATCH --partition=a40   # Choose appropriate GPU partition
+#SBATCH --partition=a40,t4v1,t4v2   # Choose appropriate GPU partition
 #SBATCH --gres=gpu:1          # Must request at least 1 GPU under deadline QoS
 #SBATCH --time=100:00:00
 #SBATCH -c 10
