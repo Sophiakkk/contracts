@@ -5,7 +5,7 @@
 #SBATCH --job-name="pd-all"
 #SBATCH --partition=cpu
 #SBATCH --time=100:00:00
-#SBATCH -c 4
+#SBATCH -c 6
 #SBATCH --mem=4G
 
 #SBATCH --array=1-20
