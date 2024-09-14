@@ -3,6 +3,7 @@
 #SBATCH --qos=deadline
 
 #SBATCH --job-name="pd-all"
+#SBATCH --gres=gpu:1
 #SBATCH --partition=cpu
 #SBATCH --time=100:00:00
 #SBATCH -c 6
