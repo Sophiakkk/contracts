@@ -130,9 +130,8 @@ if __name__ =='__main__' :
     sm = 73907 
     new_config_list = [] 
     for c in config_dict_list :
-        for i in range(args.seeds) : 
-            c['seed'] = int((i+1)*sm) 
-            new_config_list.append(copy.deepcopy(c)) 
+        c['seed'] = args.task_id * sm
+        new_config_list.append(copy.deepcopy(c)) 
 
     # Do we want to load first stage checkpoint paths from a past experiment, note that for this to work in such an automated manner,
     # the experiment name and the seeding for the past experiment should be identical. I follow a generic naming convention where experiment names
