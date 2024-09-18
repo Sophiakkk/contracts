@@ -90,6 +90,7 @@ def parse_arguments_dict(experiment_name, arg_dict):
         'num_agents': arg_dict.get("num_agents"), # Number of agents 
         'horizon': arg_dict.get("horizon"),       # Horizon (Episode length)
         'batch_size': arg_dict.get("batch_size"), # Batch size (Number of samples to collect between training iterations)
+        'num_sgd_iter': arg_dict.get("num_sgd_iter",1), # Number of SGD iterations
         'num_workers': arg_dict.get("num_workers"), # Number of workers (Number of parallel environments) 
         'eval_num_workers': arg_dict.get("eval_num_workers"), # Number of evaluation workers (Should only be used if there is an evaluation function to use)
         'num_gpus': gpus,       # Number of GPUs to use
@@ -115,7 +116,7 @@ def parse_arguments_dict(experiment_name, arg_dict):
         'model_params':model,                                   # Model parameters (should be a dictionary, mainly for custom models)
         'env_args':env_args,                                    # Any custom env params 
         'solver':arg_dict.get("solver",False),                  # Whether to use a solver for second stage of contracting
-        'minibatch_size':arg_dict.get("minibatch_size",128),   # Minibatch size for the contract negotiation stage
+        'minibatch_size':arg_dict.get("minibatch_size"),   # Minibatch size for the contract negotiation stage
         'solver_samples': arg_dict.get('solver_samples',10),     # Number of contracts sampled by solver per episode
         'task_id':task_id                                      # Task ID for wandb                                                                                                                                                                                                                                                  # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
     }

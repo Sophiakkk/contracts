@@ -1,12 +1,22 @@
 # experiment name
+# exp_dics = {
+#     'PD_separate':{
+#     'name':'pd_separate',
+#     'config_path': "experiment_configs/pd-separate.json"
+#         },
+#     'PD_contract':{
+#     'name':'pd_contract',
+#     'config_path': "experiment_configs/pd-contract.json"}
+# }
+
 exp_dics = {
     'PD_separate':{
-    'name':'pd_separate',
-    'config_path': "experiment_configs/pd-separate.json"
+    'name':'ipc_separate',
+    'config_path': "experiment_configs/ipc-separate.json"
         },
     'PD_contract':{
-    'name':'pd_contract',
-    'config_path': "experiment_configs/pd-contract.json"}
+    'name':'ipc_contract',
+    'config_path': "experiment_configs/ipc-contract.json"}
 }
 
 id=1
