@@ -9,7 +9,8 @@
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
-source ~/anaconda3/bin/activate
+# Initialize Conda
+source /scratch/ssd004/scratch/shuhui//miniconda3/etc/profile.d/conda.sh 
 conda activate contracting
 
 config=config_combo.txt
