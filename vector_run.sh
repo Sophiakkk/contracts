@@ -1,13 +1,10 @@
 #!/bin/bash
-#SBATCH --qos=cpu_qos
-
 #SBATCH --job-name="pd-all"
-#SBATCH --partition=cpu   # Choose appropriate GPU partition
-#SBATCH --gres=gpu:1          # Must request at least 1 GPU under deadline QoS
-#SBATCH --time=0-24:00:00
-#SBATCH -c 6
+#SBATCH --qos=cpu_qos
 #SBATCH --mem=4G
-
+#SBATCH --time=0-24:00:00
+#SBATCH --partition=cpu
+#SBATCH --cpus-per-task=6
 #SBATCH --array=1-20
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
