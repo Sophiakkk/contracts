@@ -143,6 +143,7 @@ def get_config_and_env(params_dict):
             "model":params_dict['model_params'],
             "num_workers": params_dict['num_workers'],
             'sgd_minibatch_size': params_dict['minibatch_size'],
+            'num_sgd_iter': params_dict['num_sgd_iter'],
             "lr": params_dict.get("lr",4e-4),
             "vf_loss_coeff": params_dict.get("vf_loss_coeff",2.0),
             "horizon": params_dict['horizon'],
