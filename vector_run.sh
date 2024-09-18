@@ -9,6 +9,9 @@
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
 
+source ~/anaconda3/bin/activate
+conda activate contracting
+
 config=config_combo.txt
 
 name=$(awk -v ArrayTaskID=$SLURM_ARRAY_TASK_ID '$1==ArrayTaskID {print $2}' $config)
