@@ -32,7 +32,7 @@ class CustomLoggerCallback(LoggerCallback):
         global run_wandb
         run_wandb = None 
         name = "task_{}".format(str(self.config['task_id']))
-        group = self.config['parent_tag']+"_separate_"+str(self.config['separate'])
+        group = "horizon{}_".format(str(self.config['horizon']))+self.config['parent_tag']+"_separate_"+str(self.config['separate'])
         run_wandb = wandb.init(project='Contract-IPC-All',group=group,config=self.config,tags=[self.config['base_env_tag']],name=name,settings=wandb.Settings(start_method="fork",_disable_stats=True),mode='online')  
         return run_wandb 
 

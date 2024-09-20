@@ -5,7 +5,7 @@
     "minibatch_size": 1024,
     "num_sgd_iter": 30,
     "max_steps": 2,
-    "horizon": 2,
+    "horizon": 16,
     "lr": 4e-4,
     "vf_loss_coeff": 2.0,
     "model_params":{
