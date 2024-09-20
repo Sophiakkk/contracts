@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name="pd-all"
+#SBATCH --job-name="ipc-contract"
 #SBATCH --qos=cpu_qos
 #SBATCH --mem=4G
 #SBATCH --time=0-24:00:00
 #SBATCH --partition=cpu
-#SBATCH --cpus-per-task=2
+#SBATCH --cpus-per-task=6
 #SBATCH --array=1-20
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
