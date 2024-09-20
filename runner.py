@@ -27,7 +27,7 @@ def get_args() :
     parser.add_argument('--mp',action='store_true',default=False,help='Whether to use multiprocesssing')
     parser.add_argument('--workers', type = int , default=1, help = 'Only required if multiprocessing is true: Total number of workers, must be larger than the max worker requirement in the config dict') 
     parser.add_argument('--w_per_job', type = int , default=1 , help = 'Only required if multiprocessing is true: Total number of workers, must be larger than the max worker requirement in the config dict') 
-    parser.add_argument('--gpu',action='store_true',default=False,help='Whether to use gpu')
+    parser.add_argument('--gpu',action='store_true',default=True,help='Whether to use gpu')
     parser.add_argument('--config_path', default="experiment_configs/ipc-separate.json", type = str, help= 'Name for campaign to run') 
     parser.add_argument('--results_dir',type =str, default = 'results/') 
     parser.add_argument('--load_second_stage',type=str,default=None)
