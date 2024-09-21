@@ -68,10 +68,13 @@ def parse_arguments_dict(experiment_name, arg_dict):
     env_config =  {
                 "num_agents": arg_dict.get("num_agents"),
                 "env_params": env_params,
-                "horizon": arg_dict.get("horizon")
             } 
     env_config.update(env_args)
-
+    # Add horizon to env_config if it exists in arg_dict
+    horizon = arg_dict.get("horizon")
+    print("env horizon config: ", horizon)
+    if horizon is not None:
+        env_config["horizon"] = horizon
     base_env = env_creator(base_env_tag,env_config)
 
     convolutional = False
