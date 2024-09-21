@@ -65,8 +65,7 @@ def ppo_learning(params_dict,config,wb_logger) :
     stop_condition = config['stop_cond'] 
     del config['stop_cond']
 
-    config['gamma'] = params_dict['gamma']
-    print("gamma:",config['gamma'])
+    config['gamma'] = 0.99
     
     analysis = ray.tune.tune.run('PPO',name=params_dict['exp_name'],stop=stop_condition,
                  config=config,callbacks=[wb_logger],local_dir=params_dict['results_dir'],
