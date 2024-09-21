@@ -122,7 +122,8 @@ def parse_arguments_dict(experiment_name, arg_dict):
         'solver':arg_dict.get("solver",False),                  # Whether to use a solver for second stage of contracting
         'minibatch_size':arg_dict.get("minibatch_size"),   # Minibatch size for the contract negotiation stage
         'solver_samples': arg_dict.get('solver_samples',10),     # Number of contracts sampled by solver per episode
-        'task_id':task_id                                      # Task ID for wandb                                                                                                                                                                                                                                                  # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
+        'task_id':task_id,                                      # Task ID for wandb
+        'env_config': env_config                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      # Arguments to be passed to the environment (these arguments are passed                                                                 #    directly to the environment (not in a dictionary) - for general use)         
     }
 
     if params_dict['joint'] or params_dict['separate']  or params_dict['combined'] or params_dict['solver']:

@@ -17,7 +17,8 @@ class PD(MultiAgentEnv):
 
     def __init__(self, **kwargs):
         print("initialize config", kwargs)
-        self.horizon = kwargs.get('horizon', None)
+        self.config = kwargs
+        self.horizon = self.config.get('horizon', None)
         print("max_steps",self.horizon)
         # self.payout_mat = np.array([[-1., 0.], [-3., -2.]]) # for PD
         self.payout_mat = np.array([[0., 2.], [-1., 0.]]) # for IPC
