@@ -16,6 +16,7 @@ class PD(MultiAgentEnv):
     NUM_STATES = 1 
 
     def __init__(self, config):
+        print("config",config)
         self.horizon = config['horizon']
         print("max_steps",self.horizon)
         # self.payout_mat = np.array([[-1., 0.], [-3., -2.]]) # for PD
