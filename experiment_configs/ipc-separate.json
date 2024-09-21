@@ -4,7 +4,7 @@
     "batch_size": 1024,
     "minibatch_size": 1024,
     "num_sgd_iter": 30,
-    "horizon": 16,
+    "horizon": 2,
     "gamma": 0.99,
     "lr": 4e-4,
     "vf_loss_coeff": 2.0,
