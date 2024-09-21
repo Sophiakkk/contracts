@@ -168,6 +168,9 @@ def get_config_and_env(params_dict):
                 "num_agents": params_dict['num_agents'],
                 "env_params":params_dict['env_params']
             } 
+    env_config.update(
+        {"horizon": params_dict['horizon']}
+    )
     env_config.update(params_dict['env_args']) 
     if params_dict['joint']:
         env_config.update({
