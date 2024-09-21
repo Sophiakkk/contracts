@@ -15,11 +15,8 @@ class PD(MultiAgentEnv):
     NUM_ACTIONS = 2
     NUM_STATES = 1 
 
-    def __init__(self, **kwargs):
-        print("initialize config", kwargs)
-        self.config = kwargs
-        self.horizon = self.config.get('horizon', None)
-        print("max_steps",self.horizon)
+    def __init__(self, horizon=2, **kwargs):
+        self.horizon = horizon
         # self.payout_mat = np.array([[-1., 0.], [-3., -2.]]) # for PD
         self.payout_mat = np.array([[0., 2.], [-1., 0.]]) # for IPC
         self.dummy_state = np.array([1., 0.]) # alternative dummy observation [1, 0]
@@ -46,7 +43,6 @@ class PD(MultiAgentEnv):
         ac0 = actions["a0"]
         ac1 = actions["a1"]
         self.step_count += 1
-        wandb.log({'horizon':self.horizon})
         # Compute rewards for both agents
         rewards = {
             "a0": self.payout_mat[ac1][ac0],
