@@ -15,7 +15,7 @@ class PD(MultiAgentEnv):
     NUM_ACTIONS = 2
     NUM_STATES = 1 
 
-    def __init__(self, horizon=2, **kwargs):
+    def __init__(self, horizon=16, **kwargs):
         self.horizon = horizon
         # self.config = kwargs
         # self.horizon = self.config['horizon']
