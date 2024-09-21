@@ -2,6 +2,7 @@ import gym
 import numpy as np
 # from gym.spaces import Discrete, Tuple
 from ray.rllib.env import MultiAgentEnv
+import wandb
 
 # class IteratedPrisonersDilemma(gym.Env):
 class PD(MultiAgentEnv):
@@ -43,7 +44,7 @@ class PD(MultiAgentEnv):
         ac0 = actions["a0"]
         ac1 = actions["a1"]
         self.step_count += 1
-
+        wandb.log({'horizon':self.horizon})
         # Compute rewards for both agents
         rewards = {
             "a0": self.payout_mat[ac1][ac0],
