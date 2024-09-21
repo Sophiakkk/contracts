@@ -15,8 +15,8 @@ class PD(MultiAgentEnv):
     NUM_STATES = 1 
 
     def __init__(self, horizon=1, **kwargs):
-        self.max_steps = horizon
-        print("max_steps",self.max_steps)
+        self.horizon = horizon
+        print("max_steps",self.horizon)
         # self.payout_mat = np.array([[-1., 0.], [-3., -2.]]) # for PD
         self.payout_mat = np.array([[0., 2.], [-1., 0.]]) # for IPC
         self.dummy_state = np.array([1., 0.]) # alternative dummy observation [1, 0]
@@ -53,7 +53,7 @@ class PD(MultiAgentEnv):
         social_welfare = rewards["a0"] + rewards["a1"]
 
         # Determine if the episode is done
-        done = self.step_count == self.max_steps
+        done = self.step_count == self.horizon
         dones = {"__all__": done}
 
         # infos = {"a0": {}, "a1": {}}
