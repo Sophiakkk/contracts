@@ -14,8 +14,9 @@ class PD(MultiAgentEnv):
     NUM_ACTIONS = 2
     NUM_STATES = 1 
 
-    def __init__(self, max_steps=1, **kwargs):
-        self.max_steps = max_steps
+    def __init__(self, horizon=1, **kwargs):
+        self.max_steps = horizon
+        print("max_steps",self.max_steps)
         # self.payout_mat = np.array([[-1., 0.], [-3., -2.]]) # for PD
         self.payout_mat = np.array([[0., 2.], [-1., 0.]]) # for IPC
         self.dummy_state = np.array([1., 0.]) # alternative dummy observation [1, 0]
