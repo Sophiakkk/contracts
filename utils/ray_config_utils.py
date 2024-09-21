@@ -68,6 +68,7 @@ def parse_arguments_dict(experiment_name, arg_dict):
     env_config =  {
                 "num_agents": arg_dict.get("num_agents"),
                 "env_params": env_params,
+                "horizon": arg_dict.get("horizon")
             } 
     env_config.update(env_args)
 
