@@ -150,5 +150,13 @@ class MetricsCallback(DefaultCallbacks,LoggerCallback):
         if len(metrics) >0 :
             for k,v in metrics.items() : 
                     episode.custom_metrics[k] = v 
-        
+
+        # Compute the discounted accumulated reward
+        reward_history = episode._reward_history
+        gamma = worker.policy_config.get("gamma", 0.99)  # Default to 0.99 if gamma is not set
+
+        discounted_reward = sum([reward * (gamma ** i) for i, reward in enumerate(reward_history)])
+
+        # Log the discounted accumulated reward in custom metrics
+        episode.custom_metrics["discounted_accumulated_reward"] = discounted_reward
         
