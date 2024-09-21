@@ -47,14 +47,14 @@ class PD(MultiAgentEnv):
         ac1 = actions["a1"]
         self.step_count += 1
         # Compute rewards for both agents
-        # rewards = {
-        #     "a0": self.payout_mat[ac1][ac0],
-        #     "a1": self.payout_mat[ac0][ac1]
-        # }
         rewards = {
-            "a0": 2.0,
-            "a1": 2.0
+            "a0": self.payout_mat[ac1][ac0],
+            "a1": self.payout_mat[ac0][ac1]
         }
+        # rewards = {
+        #     "a0": 2.0,
+        #     "a1": 2.0
+        # }
 
         social_welfare = rewards["a0"] + rewards["a1"]
 
