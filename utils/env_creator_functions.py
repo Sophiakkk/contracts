@@ -9,6 +9,7 @@ from environments.harvest_new import HarvestEnv
 from environments.self_driving_car_accelerate import SelfAcceleratingCarEnv
 from environments.two_stage_train import SeparateContractNegotiateStage,SeparateContractSubgameStage, SeparateContractCombinedStage, JointEnv, NegotiationSolver
 from environments.pd import PD
+from environments.grid_game import GridSocialDilemmaEnv
 
 def env_creator(name,config):
     if name == 'SelfDrive':
@@ -33,6 +34,8 @@ def env_creator(name,config):
         return JointEnv(**config)
     elif name == 'PD':
         return PD(**config)
+    elif name == 'GridGame':
+        return GridSocialDilemmaEnv(**config)
     else :
         raise ValueError('Environment not found')
 
@@ -47,6 +50,7 @@ register_env('ContractWrapperCombined', lambda config: env_creator('ContractWrap
 register_env('NegotiationSolver', lambda config: env_creator('NegotiationSolver',config))
 register_env('JointEnv', lambda config: env_creator('JointEnv',config))
 register_env('PD', lambda config: env_creator('PD',config))
+register_env('GridGame', lambda config: env_creator('GridGame',config))
 
 def get_base_env_tag(arg_dict) : 
     if arg_dict.get("environment") == 'selfdrive':
@@ -61,6 +65,8 @@ def get_base_env_tag(arg_dict) :
         base_env_tag = 'CleanupNew'
     elif arg_dict.get("environment") == 'pd':
         base_env_tag = 'PD'
+    elif arg_dict.get("environment") == 'grid_game':
+        base_env_tag = 'GridGame'
     else:
         assert False
     return base_env_tag
