@@ -9,14 +9,24 @@
 #     'config_path': "experiment_configs/pd-contract.json"}
 # }
 
+# exp_dics = {
+#     'PD_separate':{
+#     'name':'ipc_separate',
+#     'config_path': "experiment_configs/ipc-separate.json"
+#         },
+#     'PD_contract':{
+#     'name':'ipc_contract',
+#     'config_path': "experiment_configs/ipc-contract.json"}
+# }
+
 exp_dics = {
-    'PD_separate':{
-    'name':'ipc_separate',
-    'config_path': "experiment_configs/ipc-separate.json"
+    'Grid_separate':{
+    'name':'grid_separate',
+    'config_path': "experiment_configs/grid-separate.json"
         },
-    'PD_contract':{
-    'name':'ipc_contract',
-    'config_path': "experiment_configs/ipc-contract.json"}
+    'Grid_contract':{
+    'name':'grid_contract',
+    'config_path': "experiment_configs/grid-contract.json"}
 }
 
 id=1
