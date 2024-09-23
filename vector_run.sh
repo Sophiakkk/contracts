@@ -1,11 +1,10 @@
 #!/bin/bash
 #SBATCH --job-name="ipc-contract"
-#SBATCH --qos=normal
+#SBATCH --qos=cpu_qos
 #SBATCH --mem=4G
 #SBATCH --time=0-24:00:00
-#SBATCH --partition=t4v1,t4v2,a40,rtx6000
-#SBATCH --gres=gpu:1
-#SBATCH --cpus-per-task=6
+#SBATCH --partition=cpu
+#SBATCH --cpus-per-task=2
 #SBATCH --array=1-20
 #SBATCH --output=logs/%x-%A-%a.out
 #SBATCH --error=logs/%x-%A-%a.err
