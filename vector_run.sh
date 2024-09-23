@@ -1,7 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name="ipc-contract"
-#SBATCH --account=deadline
-#SBATCH --qos=deadline
+#SBATCH --qos=normal
 #SBATCH --mem=4G
 #SBATCH --time=0-24:00:00
 #SBATCH --partition=t4v1,t4v2,a40,rtx6000
