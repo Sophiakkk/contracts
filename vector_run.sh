@@ -12,8 +12,8 @@
 #SBATCH --error=logs/%x-%A-%a.err
 
 # Initialize Conda
-source /scratch/ssd004/scratch/shuhui//miniconda3/etc/profile.d/conda.sh 
-conda activate contracting
+# source /scratch/ssd004/scratch/shuhui//miniconda3/etc/profile.d/conda.sh 
+# conda activate contracting
 
 config=config_combo.txt
 
