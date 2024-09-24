@@ -8,7 +8,7 @@ class GridSocialDilemmaEnv(MultiAgentEnv):
     NUM_AGENTS = 2
     NUM_ACTIONS = 2
 
-    def __init__(self, max_steps=1, grid_size=2, k=2, **kwargs):
+    def __init__(self, max_steps=16, grid_size=4, k=2, **kwargs):
         self.max_steps = max_steps
         self.grid_size = grid_size
         self.num_agents = 2
