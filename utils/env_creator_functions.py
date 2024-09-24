@@ -65,7 +65,7 @@ def get_base_env_tag(arg_dict) :
         base_env_tag = 'CleanupNew'
     elif arg_dict.get("environment") == 'pd':
         base_env_tag = 'PD'
-    elif arg_dict.get("environment") == 'grid_game':
+    elif arg_dict.get("environment") == 'gridgame':
         base_env_tag = 'GridGame'
     else:
         assert False
